@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function HospitalCard ({hospitalName, imgSrc}: {hospitalName:string, imgSrc:string}) {
     return (
         <div className={styles.hospitalcard}>
-            <div className={styles.imgContainer}>
+            <div className='w-full h-[200px] relative'>
                 <Image
                 src={imgSrc}
                 alt='Hospital Picture'
