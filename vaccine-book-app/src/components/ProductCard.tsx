@@ -13,8 +13,8 @@ export default function ProductCard () {
                 />
             </div>
             <div className={styles.cardText}>
-                <h2>Why should we vaccinate?</h2>
-                <p>
+                <h2 className='font-bold'>Why should we vaccinate?</h2>
+                <p className='font-normal' >
                 Vaccines offer a powerful shield against infectious diseases, providing several key benefits. They not only protect individuals from severe illness and potentially life-threatening infections but also contribute to broader community immunity. Vaccines are instrumental in preventing outbreaks, reducing healthcare burdens, and ultimately saving lives. By getting vaccinated, individuals can confidently navigate their daily lives, travel safely, and contribute to the collective effort to curb the spread of infectious diseases, safeguarding the health of entire populations.
                 </p>
             </div>
