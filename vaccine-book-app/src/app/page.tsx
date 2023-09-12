@@ -30,6 +30,9 @@ export default function Home() {
           />
         </div>
       </div>
+      <div className='h-[100px]'>
+
+      </div>
     </main>
   )
 }

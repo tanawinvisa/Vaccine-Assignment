@@ -1,11 +1,9 @@
 .hospitalcard{
     width: 300px;
     height: 300px;
-    background:rgb(87, 192, 231);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5) , 0 6px 20px 0 rgba(0,0,0,0.5);
     border-radius: 10px;
-    margin: 20px;
-    color: white;
+    color: rgb(9,21,42);
 }
 
 .hospitalText{
