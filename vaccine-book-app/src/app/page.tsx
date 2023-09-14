@@ -3,6 +3,7 @@ import styles from './page.module.css'
 import Banner from '@/components/Banner'
 import ProductCard from '@/components/ProductCard'
 import HospitalCard from '@/components/HospitalCard'
+import CardPanel from '@/components/CardPanel'
 
 export default function Home() {
   return (
@@ -15,20 +16,7 @@ export default function Home() {
         <h2 className='font-bold text-lg' style={{marginLeft: '70px',marginTop: '20px' , color: 'white'}}>
           Cooperating hospitals
         </h2>
-        <div className='hospital-list' style={{display: 'flex' , justifyContent: 'space-around'}}>
-          <HospitalCard 
-            hospitalName='Chulalongkorn Hospital'
-            imgSrc='/img/chula.jpg'
-          />
-          <HospitalCard 
-            hospitalName='Thammasat Hospital'
-            imgSrc='/img/thammasat.jpg'
-          />
-          <HospitalCard 
-            hospitalName='Rajavithi Hospital'
-            imgSrc='/img/rajavithi.jpg'
-          />
-        </div>
+        <CardPanel />
       </div>
       <div className='h-[100px]'>
 

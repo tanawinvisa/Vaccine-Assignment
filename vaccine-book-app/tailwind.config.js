@@ -6,7 +6,14 @@ module.exports = {
 
   ],
   theme: {
-    extend: {},
+    extend: {
+      textColor: {
+        'custom-blue': 'rgb(87, 192, 231)',
+      },
+      backgroundColor: {
+        'custom-blue': 'rgb(87, 192, 231)',
+      },
+    },
   },
   plugins: [],
 }

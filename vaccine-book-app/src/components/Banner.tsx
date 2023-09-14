@@ -1,23 +1,28 @@
+'use client'
 import styles from './banner.module.css'
 import Image from 'next/image';
+import { useState } from 'react';
 
 export default function Banner () {
+    const covers1 = ['none','/img/cover2.jpg','/img/cover3.jpg','/img/cover4.jpg']
+    const [index , setIndex] = useState(0)
+
     return (
-        <div className={styles.banner}>
-            <div className={styles.bannerText}>
-                <h4 className='font-semibold'>Get Vaccine ,Boost Your Health</h4>
-                <h1 className='font-black'>Get Vaccinated<br/>
+        <div className={'flex m-0 w-full h-[600px] relative bg-[rgb(9,21,42)] bg-cover bg-center'} style={{ backgroundImage: `url(${covers1[index%4]})` }} onClick={()=>{setIndex(index+1)}}>
+            <div className={'text-white z-1 flex justify-center relative ml-[150px] leading-[58px] flex-col w-[60%] top-[-30px] bg-gradient-to-r from-[rgb(9,21,42)] to-black '  + `${(index%4 != 0) &&  '!bg-none'}`}>
+                <h4 className='font-semibold text-custom-blue'>Get Vaccine ,Boost Your Health</h4>
+                <h1 className='font-black text-[44px]'>Get Vaccinated<br/>
                 Now Easily With <br/>
                 Vaccining
                 </h1>
                 
-                <p className='font-normal w-1/2'>Welcome to our Vaccine Reservation Service.
+                <p className='font-normal w-1/2 text-justify leading-[24px] mt-[10px] text-slate-300'>Welcome to our Vaccine Reservation Service.
                 Your health and safety are our top priorities. We're here to make the vaccine reservation process easy and convenient for you.
                 Secure your appointment today and take a step towards a safer, healthier tomorrow.</p>
                 
-                <button>Reserve Now</button>
+                <button className='bg-custom-blue rounded-lg h-[50px] w-[200px] font-bold mt-[30px] text-white z-10'>Reserve Now</button>
             </div>
-            <div className='flex w-2/5'>
+            <div className={'flex w-2/5 ' + `${(index%4 != 0) &&  'hidden'}`}>
                 <Image src={'/img/cover.jpg'} 
                 alt='cover'
                 width={5000}

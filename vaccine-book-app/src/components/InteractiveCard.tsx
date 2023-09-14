@@ -1,10 +1,6 @@
 'use client'
 export default function InteractiveCard ({children ,contentName}: {children : React.ReactNode, contentName:string}) {
 
-    function onCardSelected(){
-        alert("Card is Clicked " + contentName);
-    }
-
     function onCardMouseAction(event: React.SyntheticEvent){
         if(event.type == 'mouseover'){
             event.currentTarget.classList.remove('shadow-lg')
@@ -21,7 +17,6 @@ export default function InteractiveCard ({children ,contentName}: {children : Re
 
     return (
         <div className="w-[300px] h-[300px] round-lg shoadow-lg bg-white relative top-[20px]" 
-        onClick={()=>onCardSelected()}
         onMouseOver={(e)=>onCardMouseAction(e)}
         onMouseOut={(e)=>onCardMouseAction(e)}
         style={{borderRadius: "10px"}}
