@@ -24,7 +24,7 @@ export default function HospitalDetailPage( {params} : {params : {hid: string}} 
         </main>
     )
 }
-
+//asdas
 export async function generateStaticParams(){
     return [{hid:"001"},{hid:"002"},{hid:"003"}]
 }
