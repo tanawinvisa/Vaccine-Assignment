@@ -26,7 +26,11 @@ export default function HospitalCard ({hospitalName, imgSrc, onClickRating, rati
                         event.stopPropagation();
                         console.log(ratingList.get(hospitalName))
                         onClickRating(newValue)
+                        event.preventDefault()
                     }}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                      }}
                     />
                 </div>
             </div>

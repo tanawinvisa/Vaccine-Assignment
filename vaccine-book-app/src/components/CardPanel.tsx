@@ -1,6 +1,7 @@
 'use client'
 import HospitalCard from "./HospitalCard"
 import { useReducer, useState } from "react"
+import Link from "next/link"
 
 export default function CardPanel() {
 
@@ -23,29 +24,28 @@ export default function CardPanel() {
 
     console.log(ratingList)
 
+    const mockHospitalRepo = [
+        {hid : "001", name : "Chulalongkorn Hospital", image : "/img/chula.jpg"},
+        {hid : "002", name : "Thammasat Hospital", image : "/img/thammasat.jpg"},
+        {hid : "003", name : "Rajavithi Hospital", image : "/img/rajavithi.jpg"},
+    ]
+
     return (
         <div>
             <div className='hospital-list' style={{display: 'flex' , justifyContent: 'space-around'}}>
-            <HospitalCard 
-                hospitalName='Chulalongkorn Hospital'
-                imgSrc='/img/chula.jpg'
-                onClickRating={( scorerating:number)=>dispatchRating({type:"add", score: scorerating, HospitalName:"Chulalongkorn Hospital"})}
-                ratingList={ratingList}
-            />
-            <HospitalCard 
-                hospitalName='Thammasat Hospital'
-                imgSrc='/img/thammasat.jpg'
-                onClickRating={( scorerating:number)=>dispatchRating({type:"add",score: scorerating, HospitalName:"Thammasat Hospital"})}
-                ratingList={ratingList}
-
-            />
-            <HospitalCard 
-                hospitalName='Rajavithi Hospital'
-                imgSrc='/img/rajavithi.jpg'
-                onClickRating={( scorerating:number)=>dispatchRating({type:"add",score: scorerating, HospitalName:"Rajavithi Hospital"})}
-                ratingList={ratingList}
-
-            />
+            {
+                mockHospitalRepo.map((item) => (
+                <Link href={`/hospital/${item.hid}`}>
+                    <HospitalCard 
+                    hospitalName={item.name}
+                    imgSrc={item.image}
+                    onClickRating={( scorerating:number , e:Event)=>{dispatchRating({type:"add", score: scorerating, HospitalName:`${item.name}`})
+                    }}
+                    ratingList={ratingList}
+                    />
+                </Link>
+                ))
+            }
             </div>
             <div className="w-full bg-white text-black p-4 shadow-lg rounded-lg mt-10">
                 <h2 className="text-2xl font-semibold mb-4">Rating List: {ratingList.size}</h2>
