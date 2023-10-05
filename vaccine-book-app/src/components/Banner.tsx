@@ -26,7 +26,7 @@ export default function Banner () {
                 <button className='absolute bg-white h-[50px] w-[200px] font-bold mt-[30px] z-10 text-black rounded-lg left-[70vw] top-[470px] hover:bg-custom-blue'
                 onClick={(e)=>{
                     router.push('/hospital')
-                    e.stopPropagation();
+                    e.stopPropagation(); 
                 }}
                 >Select Hospital Now</button>
             </div>
