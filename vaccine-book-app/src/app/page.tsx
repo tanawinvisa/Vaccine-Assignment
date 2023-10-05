@@ -16,6 +16,7 @@ export default function Home() {
         <h2 className='font-bold text-lg' style={{marginLeft: '70px',marginTop: '20px' , color: 'white'}}>
           Cooperating hospitals
         </h2>
+        <CardPanel />
       </div>
       <div className='h-[100px]'>
 

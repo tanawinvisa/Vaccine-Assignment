@@ -2,12 +2,10 @@
 import styles from './banner.module.css'
 import Image from 'next/image';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 export default function Banner () {
     const covers1 = ['none','/img/cover2.jpg','/img/cover3.jpg','/img/cover4.jpg']
     const [index , setIndex] = useState(0)
-    const router = useRouter();
 
     return (
         <div className={'flex m-0 w-full h-[600px] relative bg-[rgb(9,21,42)] bg-cover bg-center'} style={{ backgroundImage: `url(${covers1[index%4]})` }} onClick={()=>{setIndex(index+1)}}>
@@ -23,12 +21,6 @@ export default function Banner () {
                 Secure your appointment today and take a step towards a safer, healthier tomorrow.</p>
                 
                 <button className='bg-custom-blue rounded-lg h-[50px] w-[200px] font-bold mt-[30px] text-white z-10'>Reserve Now</button>
-                <button className='absolute bg-white h-[50px] w-[200px] font-bold mt-[30px] z-10 text-black rounded-lg left-[70vw] top-[470px] hover:bg-custom-blue'
-                onClick={(e)=>{
-                    router.push('/hospital')
-                    e.stopPropagation();
-                }}
-                >Select Hospital Now</button>
             </div>
             <div className={'flex w-2/5 ' + `${(index%4 != 0) &&  'hidden'}`}>
                 <Image src={'/img/cover.jpg'} 
