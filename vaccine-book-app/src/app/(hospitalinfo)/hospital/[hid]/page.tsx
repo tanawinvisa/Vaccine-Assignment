@@ -1,27 +1,41 @@
 import Image from "next/image"
-export default function HospitalDetailPage( {params} : {params : {hid: string}} ) {
+import getHospital from "@/libs/getHospital"
+export default async function HospitalDetailPage( {params} : {params : {hid: string}} ) {
 
-    const mockHospitalRepo = new Map()
-    mockHospitalRepo.set("001" , {name : "Chulalongkorn Hospital", image : "/img/chula.jpg"})
-    mockHospitalRepo.set("002" , {name : "Thammasat Hospital", image : "/img/thammasat.jpg"})
-    mockHospitalRepo.set("003" , {name : "Rajavithi Hospital", image : "/img/rajavithi.jpg"})
+    const hospitalDetail = await getHospital(params.hid)
+
+    // const mockHospitalRepo = new Map()
+    // mockHospitalRepo.set("001" , {name : "Chulalongkorn Hospital", image : "/img/chula.jpg"})
+    // mockHospitalRepo.set("002" , {name : "Thammasat Hospital", image : "/img/thammasat.jpg"})
+    // mockHospitalRepo.set("003" , {name : "Rajavithi Hospital", image : "/img/rajavithi.jpg"})
 
     return (
-        <main className="text-center p-5">
-            <h1 className="text-lg font-medium">Hospital ID {params.hid}</h1>
-            <div className="flex flex-row my-5">
-                <Image src={ (mockHospitalRepo.get(params.hid)).image }
-                alt="Hospital Image"
-                width={0}
-                height={0}
-                sizes="1000vw"
-                className="rounded-lg w-[30%]"
-                />
-                <div className="text-md mx-5">
-                    {(mockHospitalRepo.get(params.hid)).name}
-                </div>
-            </div>
-        </main>
+        <main className="bg-white p-5 flex items-center justify-center">
+  <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="flex flex-col sm:flex-row items-center sm:space-x-10">
+      <div className="w-1/2 text-center">
+        <Image
+          src={hospitalDetail.data.picture}
+          alt="Hospital Image"
+          width={500}  // Adjust the width to make it larger
+          height={400} // Adjust the height to make it larger
+        />
+      </div>
+      <div className="w-1/2 text-center sm:text-left">
+        <h1 className="text-2xl font-semibold mb-3">
+          {hospitalDetail.data.name}
+        </h1>
+        <p className="text-base mb-3">{hospitalDetail.data.address}</p>
+        <p className="text-base mb-3">{hospitalDetail.data.district}</p>
+        <p className="text-base mb-3">{hospitalDetail.data.province}</p>
+        <p className="text-base mb-3">{hospitalDetail.data.postalcode}</p>
+        <p className="text-base mb-3">tel: {hospitalDetail.data.tel}</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+
     )
 }
 //asdas

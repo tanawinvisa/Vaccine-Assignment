@@ -3,7 +3,7 @@ import Image from 'next/image'
 import InteractiveCard from './InteractiveCard';
 import { Rating } from '@mui/material';
 
-export default function HospitalCard ({hospitalName, imgSrc, onClickRating, ratingList}: {hospitalName:string, imgSrc:string, onClickRating:Function, ratingList:Map<string,number>}) {
+export default function HospitalCard ({hospitalName, imgSrc, onClickRating, ratingList}: {hospitalName:string, imgSrc:string, onClickRating?:Function, ratingList?:Map<string,number>}) {
     return (
         <InteractiveCard contentName={hospitalName}>
             <div className={styles.hospitalcard}>
@@ -18,21 +18,23 @@ export default function HospitalCard ({hospitalName, imgSrc, onClickRating, rati
                 <div className={styles.hospitalText}>
                     <h2 className='font-semibold'>{hospitalName}</h2>
                 </div>
-                <div className='relative top-[-31px]'>
-                <Rating
-                    name="simple-controlled"
-                    value={ratingList.get(hospitalName) || 0}
-                    onChange={(event,newValue) => {
-                        event.stopPropagation();
-                        console.log(ratingList.get(hospitalName))
-                        onClickRating(newValue)
-                        event.preventDefault()
-                    }}
-                    onClick={(e) => {
-                        e.stopPropagation();
-                      }}
+                {
+                    onClickRating? <div className='relative top-[-31px]'>
+                    <Rating
+                        name="simple-controlled"
+                        value={ratingList?.get(hospitalName) || 0}
+                        onChange={(event,newValue) => {
+                            event.stopPropagation();
+                            console.log(ratingList?.get(hospitalName))
+                            onClickRating(newValue)
+                            event.preventDefault()
+                        }}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                        }}
                     />
-                </div>
+                    </div> : ""
+                }
             </div>
         </InteractiveCard>
     );
