@@ -4,19 +4,13 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "../api/auth/[...nextauth]/route"
 import { Dayjs } from "dayjs";
 
-
 export default async function Booking () {
 
-  
-
-  
   const session = await getServerSession(authOptions);
     if (!session || !session.user.token) return null
 
     const profile = await getUserProfile(session.user.token)
     var createdAt = new Date(profile?.data.createdAt)
-
-
 
   return (
       <main className="w-full h-screen flex flex-col items-center space-y-4 bg-gradient-to-r from-[rgb(9,21,42)] to-black">
