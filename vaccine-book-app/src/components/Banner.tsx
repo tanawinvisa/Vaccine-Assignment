@@ -9,7 +9,7 @@ export default function Banner () {
     const [index , setIndex] = useState(0)
     const router = useRouter();
     const {data: session} = useSession();
-//   console.log(session?.user.token);
+    console.log(session);
 
     return (
         <div className={'flex m-0 w-full h-[600px] relative bg-[rgb(9,21,42)] bg-cover bg-center'} style={{ backgroundImage: `url(${covers1[index%4]})` }} onClick={()=>{setIndex(index+1)}}>

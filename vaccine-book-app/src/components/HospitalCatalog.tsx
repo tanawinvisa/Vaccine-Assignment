@@ -1,7 +1,7 @@
 import HospitalCard from "./HospitalCard"
 import Link from "next/link"
 
-export default async function CarCatalog({hospitalJson}:{hospitalJson:Object}) {
+export default async function HospitalCatalog({hospitalJson}:{hospitalJson:Object}) {
     const hospitalJsonReady = await hospitalJson
 
     return (
