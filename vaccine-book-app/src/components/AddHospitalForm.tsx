@@ -1,4 +1,3 @@
-
 import { dbConnect } from "@/db/dbConnect"
 import Hospital from "@/db/models/Hospital"
 import { revalidateTag } from "next/cache"
@@ -12,18 +11,20 @@ export default function AddHospitalForm () {
         const address = addHospital.get("address")
         const district = addHospital.get("district")
         const province = addHospital.get("province")
-        const postalCode = addHospital.get("postalCode")
+        const postalcode = addHospital.get("postalcode")
         const tel = addHospital.get("tel")
         const picture = addHospital.get("picture")
+        console.log(name,address,district,province,postalcode,tel,picture)
 
         try {
+            console.log(name,address,district,province,postalcode,tel,picture)
             await dbConnect()
             const hospital = await Hospital.create({
                 name,
                 address,
                 district,
                 province,
-                postalCode,
+                postalcode,
                 tel,
                 picture
             })
@@ -63,8 +64,8 @@ export default function AddHospitalForm () {
         </div>
         <div className="flex justify-between gap-[10px]">
             <div className="mt-4 flex-1">
-                <label className="text-xl font-semibold text-blue-700" htmlFor='postalCode'>Postal Code</label>
-                <input type="text" required id="postalCode" name="postalCode" placeholder="Postal Code"
+                <label className="text-xl font-semibold text-blue-700" htmlFor='postalcode'>Postal Code</label>
+                <input type="text" required id="postalcode" name="postalcode" placeholder="Postal Code"
                     className="w-full p-2 rounded-md border border-blue-300 focus:outline-none focus:border-blue-500" />
             </div>
             <div className="mt-4 flex-1">
